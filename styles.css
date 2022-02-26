@@ -7,6 +7,8 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Lato', sans-serif;
+      color: #222;
 }
 
 /*=========== 
@@ -66,7 +68,7 @@ with variable names like content, footer and siderbar */
   
   .footer {
     grid-area: footer;
-    background-color: #c0392b;
+    background-color: royalblue;
   }
   
   .aside {
@@ -74,7 +76,7 @@ with variable names like content, footer and siderbar */
     /* grid within a grid-area */
     display: grid;
 
-    background-color: #7f8c8d;
+    background-color: #f2f2f2;
     justify-items: center;
     align-items: center;
 
@@ -83,16 +85,22 @@ with variable names like content, footer and siderbar */
 
   .aside i {
     display: block;
-      color: white;
+      color: #2c3e50;
   }
 
-  /* main header */
+/*================
+   main header 
+=================*/
   .main__header {
     /* another grid */
     display: grid;
     grid-template-columns: 250px 1fr;
     grid-template-areas: "img dtls";
-    color: white;
+
+    background-color: #4e4e4e;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 10px;
+    padding: 20px;
     
   }
 
@@ -103,6 +111,80 @@ with variable names like content, footer and siderbar */
     grid-area: dtls;
   }
 
+/*================
+   main body (songs) 
+=================*/
+.main__body {
+    padding: 8px;
+  background-color: #fff;
+}
+/* For our use case, each direct div child of .main__body needs
+ to be flex container. This is the div that contains the name 
+ of the song, artiste, duration of the song and “catty cloud 
+ sync”. */
+
+.main__body > div {
+    /* make UI components flex where it makes sense */
+    display:flex;
+    padding: 8px;
+  }
+
+  /* Now split the width amongst the children elements: */
+
+  .main__body > div p {
+    /* flex: flex-grow  flex-shrink  flex-basis */
+    /* so here, each <p> tag takes 1/4 the flex container's width */
+    flex: 0 0 25%;
+    
+  }
+
+  /* alternate background colors for rows */
+  .main__body > div:nth-child(2n) {
+    background-color: #f2f2f2;
+}
+
+/*===============
+  clean ups.
+===============*/
+
+.details {
+	display: flex;
+	flex-direction: column;
+	font-weight: 300;
+	color: #fff;
+    margin-left: 10px; 
+}
+
+.details div:nth-child(1){
+	margin-bottom: auto;
+}
+
+.details div:nth-child(2){
+	margin-top: 0;
+}
+
+
+
+.details div:nth-child(2) i.fa{
+	font-size: 0.9rem;
+	padding: 0 0.7rem;
+	font-weight: 300;
+}
+
+.details div:nth-child(1) p:first-child{
+	font-size: 1.5rem;
+	margin: 10px 0;
+}
+
+.details div:nth-child(1) p:not(:first-child){
+	font-size: 0.9rem;
+	margin: 2px 0;
+}
+
+.sm-text-right {
+    text-align: center;
+}
+
 /*=================
     media queries
 ================== */
@@ -111,10 +193,13 @@ with variable names like content, footer and siderbar */
     /* on mobile screens, just 1 column and 2 rows */
     body {
         grid-template-rows: 1fr 90px;
-      grid-template-columns: 1fr;
-			grid-template-areas: "content"
-                                 "footer"
-         }
+        grid-template-columns: 1fr;
+        grid-template-areas: "content"
+                                "footer";
+        font-family: 'Lato', sans-serif;
+        color: #222;
+    }
+
     img {
         max-width: 100%;
     }
@@ -132,12 +217,20 @@ with variable names like content, footer and siderbar */
         grid-area: dtls;
     text-align: center;
     }  
+
+    .main__header > p {
+        font-size: .8em;
+    }
     .main__header > .img {
         grid-area: img;
     }
     .img > img {
         width: 150px
       }
+
+      .details {
+        margin-left: auto; 
+    }
 
     /* every element with class .sm--hide applied will be hidden on mobile */
     .sm--hide {
@@ -146,5 +239,13 @@ with variable names like content, footer and siderbar */
 
       .aside i {
           display: none;
+      }
+
+      .sm-text-right {
+        text-align: right;
+    }
+
+    .main__body > div p{
+        flex: 0 0 33%;
       }
 }
