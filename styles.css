@@ -1,0 +1,150 @@
+
+
+/*=========== 
+  base style 
+=============*/
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*=========== 
+  grid setup 
+=============*/
+
+body {
+    display: grid;
+    /* we want the grid full screen, some of the containers are things
+    like toolbars, and menu bars on the screen perimeter */
+    min-height: 100vh;
+    min-width: 100%;
+    /* this means make one 90px tall row on the bottom 
+    and a rest of screen row on the top */
+    grid-template-rows: 1fr 90px;
+    /* this means make one 40px wide column on the left 
+    and a rest of screen column on the right */
+    grid-template-columns: 40px 1fr;
+
+    /* The grid-template-areas property 
+       provides a visual structure of the grid.  */
+    grid-template-areas: "sidebar content"
+                         "footer  footer";
+}
+
+
+/* This is like assigning areas of the total grid to specific grid areas
+with variable names like content, footer and siderbar */
+
+/* did not know this was possible in CSS */
+
+.main {
+    grid-area: content;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+.aside {
+    grid-area: sidebar;
+}
+
+/* 
+    The code block above says, 
+    let the .main element have an area name of content. 
+    Let the .footer element have an area name of footer. 
+    Finally, let the .aside class have a grid name of sidebar
+
+    Now the grid items have all been assigned area names.
+ */
+
+ .main {
+    grid-area: content;
+    background-color: #2c3e50;
+  }
+  
+  .footer {
+    grid-area: footer;
+    background-color: #c0392b;
+  }
+  
+  .aside {
+    grid-area: sidebar;
+    /* grid within a grid-area */
+    display: grid;
+
+    background-color: #7f8c8d;
+    justify-items: center;
+    align-items: center;
+
+    
+  }
+
+  .aside i {
+    display: block;
+      color: white;
+  }
+
+  /* main header */
+  .main__header {
+    /* another grid */
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-areas: "img dtls";
+    color: white;
+    
+  }
+
+  .main__header > .img {
+    grid-area: img;
+  }
+  .main__header > .details {
+    grid-area: dtls;
+  }
+
+/*=================
+    media queries
+================== */
+
+@media only screen and (max-width: 600px) {
+    /* on mobile screens, just 1 column and 2 rows */
+    body {
+        grid-template-rows: 1fr 90px;
+      grid-template-columns: 1fr;
+			grid-template-areas: "content"
+                                 "footer"
+         }
+    img {
+        max-width: 100%;
+    }
+
+    /* main header */
+    .main__header {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center; 
+        align-items: center;
+        grid-template-areas: "img"
+                             "dtls"; 
+      } 
+    .main__header > .details {
+        grid-area: dtls;
+    text-align: center;
+    }  
+    .main__header > .img {
+        grid-area: img;
+    }
+    .img > img {
+        width: 150px
+      }
+
+    /* every element with class .sm--hide applied will be hidden on mobile */
+    .sm--hide {
+        display: none;
+      } 
+
+      .aside i {
+          display: none;
+      }
+}
