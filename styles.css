@@ -97,10 +97,12 @@ with variable names like content, footer and siderbar */
     grid-template-columns: 260px 1fr;
     grid-template-areas: "img dtls";
 
-    background-color: #4e4e4e;
+
     color: rgba(255,255,255,0.9);
     margin-bottom: 10px;
     padding: 20px;
+    background: rgb(156,0,255);
+background: linear-gradient(90deg, rgba(144, 108, 212, 0.75) 0%, rgba(78,78,78,1) 45%, rgba(71,53,150,1) 100%);
     
   }
 
@@ -230,6 +232,11 @@ with variable names like content, footer and siderbar */
     text-align: center;
 }
 
+.sm--show {
+  display: none;
+}
+
+/* CATTY CLOUD SYNC */
 .sm--hide span{
     font-size: .6rem;
     border: 1px solid #222;
@@ -240,6 +247,8 @@ with variable names like content, footer and siderbar */
 
 img {
     border-radius: 5px;
+    border: 1px solid #999;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 5px;
 }
 
 /*=================
@@ -288,22 +297,34 @@ img {
         grid-template-columns: 1fr;
         justify-items: center; 
         align-items: center;
+        padding-bottom: 0px;
         grid-template-areas: "img"
                              "dtls"; 
+                             background: rgb(129,63,251);
+                             background: radial-gradient(circle, rgba(144, 108, 212, 0.75) 30%, rgba(78,78,78,1) 70%);
       } 
     .main__header > .details {
         grid-area: dtls;
     text-align: center;
     }  
 
+    .details div:nth-child(1) p:first-child {
+      font-size: 1rem;
+      margin: 20px 0 20px;
+      max-width: 250px;
+  }
+
+   
+
     .main__header > p {
         font-size: .8em;
+        
     }
     .main__header > .img {
         grid-area: img;
     }
     .img > img {
-        width: 150px
+        width: 100px
       }
 
       .details {
@@ -327,7 +348,10 @@ img {
       } 
       i.sm--hide {
         display: none;
-      } 
+      }
+    .sm--show {
+      display: block;
+    }
 
       .aside i {
           display: none;
