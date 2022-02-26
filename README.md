@@ -14,10 +14,10 @@ Rather than just use CSS Grid from the start, like you're supposed to : )
 - ### A grid item can be a flex container. A flex item can also be a grid container. The latter is frequently used though.
 
 - #### this project
-https://medium.com/flexbox-and-grids/how-to-efficiently-master-the-css-grid-in-a-jiffy-585d0c213577
+    -   https://medium.com/flexbox-and-grids/how-to-efficiently-master-the-css-grid-in-a-jiffy-585d0c213577
 
-- #### notes on fr unit of height / width
-https://medium.com/flexbox-and-grids/the-css-fractional-unit-fr-in-approachable-plain-language-fdc47bd387f7
+- #### notes on "fr" unit of height / width
+    - https://medium.com/flexbox-and-grids/the-css-fractional-unit-fr-in-approachable-plain-language-fdc47bd387f7
 
 # Screen shots
 
