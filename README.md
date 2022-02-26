@@ -22,6 +22,7 @@ https://medium.com/flexbox-and-grids/the-css-fractional-unit-fr-in-approachable-
 # Screen shots
 
 ## Desktop
-!()
+![desktop-view](https://raw.githubusercontent.com/kawgh1/css-grid-demo/master/screenshots/desktop-view-css-grid1.png)
 
 ## Mobile
+![mobile-view](https://raw.githubusercontent.com/kawgh1/css-grid-demo/master/screenshots/mobile-view-css-grid.png)
