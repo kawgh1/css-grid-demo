@@ -23,10 +23,10 @@ body {
     min-width: 100%;
     /* this means make one 90px tall row on the bottom 
     and a rest of screen row on the top */
-    grid-template-rows: 1fr 90px;
+    grid-template-rows: 1fr 120px;
     /* this means make one 40px wide column on the left 
     and a rest of screen column on the right */
-    grid-template-columns: 40px 1fr;
+    grid-template-columns: 110px 1fr;
 
     /* The grid-template-areas property 
        provides a visual structure of the grid.  */
@@ -63,7 +63,7 @@ with variable names like content, footer and siderbar */
 
  .main {
     grid-area: content;
-    background-color: #2c3e50;
+    /* background-color: #2c3e50; */
   }
   
   .footer {
@@ -141,6 +141,48 @@ with variable names like content, footer and siderbar */
   /* alternate background colors for rows */
   .main__body > div:nth-child(2n) {
     background-color: #f2f2f2;
+    border-radius: 5px;
+}
+
+/*===============
+  footer (player controls)
+===============*/
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.track {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: .9rem;
+
+}
+
+.track > .img > img {
+    height: 90px;
+    width: 90px;
+    margin: 15px 10px 10px;
+}
+
+/* controls */
+.controls {
+    font-size: 1.5rem;
+    width: 60%;
+    color: white;
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.controls i {
+    padding: 10px;
+    font-weight: 300;
+    font-size: 1.1rem;
 }
 
 /*===============
@@ -172,8 +214,8 @@ with variable names like content, footer and siderbar */
 }
 
 .details div:nth-child(1) p:first-child{
-	font-size: 1.5rem;
-	margin: 10px 0;
+	font-size: 1.3rem;
+	margin: 10px 0 20px;
 }
 
 .details div:nth-child(1) p:not(:first-child){
@@ -185,9 +227,35 @@ with variable names like content, footer and siderbar */
     text-align: center;
 }
 
+.sm--hide span{
+    font-size: .6rem;
+    border: 1px solid #222;
+    width: fit-content;
+    padding: .2rem .15rem;
+    letter-spacing: -.1px;
+}
+
+img {
+    border-radius: 5px;
+}
+
 /*=================
     media queries
 ================== */
+
+@media only screen and (max-width: 800px) {
+    body {
+        grid-template-rows: 1fr 90px;
+        grid-template-columns: 80px 1fr;
+    }
+
+    .track > .img > img {
+        height: 70px;
+        width: 70px;
+        margin: 15px 8px 10px;
+    }
+
+}
 
 @media only screen and (max-width: 600px) {
     /* on mobile screens, just 1 column and 2 rows */
@@ -232,8 +300,15 @@ with variable names like content, footer and siderbar */
         margin-left: auto; 
     }
 
+    .track {
+        display: none;
+    }
+
     /* every element with class .sm--hide applied will be hidden on mobile */
     .sm--hide {
+        display: none;
+      } 
+      i.sm--hide {
         display: none;
       } 
 
@@ -248,4 +323,9 @@ with variable names like content, footer and siderbar */
     .main__body > div p{
         flex: 0 0 33%;
       }
+
+    .controls {
+        justify-content: space-evenly;
+        width: 100%;
+    }
 }
