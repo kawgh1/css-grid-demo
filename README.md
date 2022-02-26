@@ -7,6 +7,8 @@ and then I'd try to patch it with some CSS Grid like it was duck tape - **it isn
 
 Rather than just use CSS Grid from the start, like you're supposed to : )
 
+- ## Live Site (Responsive) - https://objective-kilby-dbcafc.netlify.app/
+
 - # How do you know when to use CSS GRID and when to use Flexbox?
 
     - ## As a general rule, use GRID to layout the overall page layout *across screen sizes*, and Flexbox for inner UI components.
